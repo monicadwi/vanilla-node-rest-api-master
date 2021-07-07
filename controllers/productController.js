@@ -54,14 +54,18 @@ async function createProduct(req, res) {
     try {
         const body = await getPostData(req)
 
-        const { name, description, price } = JSON.parse(body)
+        const { name, description, price, password } = JSON.parse(body)
 
-
+        console.log(password);
+        if (password == "aaa"){
+            console.log("ok")
+        }
 
         const product = {
             name,
             description,
-            price
+            price,
+            password
         }
 
         const newProduct = await Product.create(product)
