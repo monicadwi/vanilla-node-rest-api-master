@@ -5,7 +5,7 @@ const server = http.createServer((req, res) => {
     if(req.url === '/api/products' && req.method === 'GET') { // ini GET
         //ini artinya route dengan endpoint /api/product/ pakai method GET. klo mau nembak pake postman
         //http://192.168.43.30:3000 --> ini disebut base url (biasanya udah fix, gak berubah)    /api/products --> endpoint (bisa banyak contoh endpoint y lain ada dibaris2 bawah)
-        getProducts(req, res)
+        getProducts(req, res) // sepertinya ini fungsi yg buat nampilin list nya
         //getProducts --> ini artinya mangggil sebuah fungsi bernama getProuct ada parameter (req, res), req artinya request, res artinya response
         //req itu berisi data yg km kirim dari postman. ada 3 tempat km bisa taro : 1. di header, 2. di body 3. query parameter.
         // kalo di body itu ada 3 lokasi --> 1. form-data 2. www-x-urlencoded 3. raw
@@ -19,7 +19,8 @@ const server = http.createServer((req, res) => {
          //ini artinya route dengan endpoint /api/product/ pakai method POST. klo mau nembak pake postman, baris bwahnya mirip2 beda method nya aja.
          // kalau pake browser cmn bisa method GET, kalau PUT/POST/DELETE harus pake postman
           // klo post itu karena biasa dipake buat insert/ save data. dia ada data yg dibawa, sebelumn kesana aku jelasin ini dulu
-        console.log(res); //console.log ini buat debugging di js. biar bisa keliatan di command prompt
+        console.log(res); //console.log ini buat debugging di js. biar bisa keliatan di command prompt ag keluar log nya hihi
+        //itu tadi berhasil insert 1 data, itu karena data yg kita kirim nngasal, jadinya gitu
         createProduct(req, res)
     } else if(req.url.match(/\/api\/products\/\w+/) && req.method === 'PUT') {
         // ini keyboar mac sm windows beda, jd salah pencet
